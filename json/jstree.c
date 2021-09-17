@@ -44,14 +44,10 @@ _tree_node * _alloc_tree_node_len(int type, const char * data, int datalen)
 	_tree_node * node;
 	node = malloc(sizeof(_tree_node));
 	node->data.type = type;
-	if(data != 0){
-		if(datalen >= 0){
-			node->data.data = malloc(datalen + 1);
-			memcpy(node->data.data, data, datalen);
-			node->data.data[datalen] = '\0';
-		}else{
-			node->data.data = 0;
-		}
+	if(data != 0 && datalen >= 0){
+		node->data.data = malloc(datalen + 1);
+		memcpy(node->data.data, data, datalen);
+		node->data.data[datalen] = '\0';
 	}else{
 		node->data.data = 0;
 	}
