@@ -76,7 +76,7 @@ int dumptree(_tree_node * tree, int indent)
 		printf("%s", t->data);
 		return 1;
 	} else if (t->type == JSMN_STRING) {
-		printf("'%s'", t->data);
+		printf("\"%s\"", t->data);
 		return 1;
 	} else if (t->type == JSMN_OBJECT) {
 		j = 0;
@@ -87,6 +87,9 @@ int dumptree(_tree_node * tree, int indent)
 			j += dumptree(tree_ptr, indent+1);
 			printf(":");
 			j += dumptree(tree_ptr->r, indent+1);
+			if(tree_ptr->l != 0){
+				printf(",");
+			}
 			printf("\n");
 			tree_ptr = tree_ptr->l;
 		};
@@ -103,9 +106,16 @@ int dumptree(_tree_node * tree, int indent)
 			for (k = 0; k < indent; k++) printf(" ");
 			//printf("- ");
 			j += dumptree(tree_ptr, indent+1);
+			if(tree_ptr->l != 0){
+				printf(",");
+			}
 			printf("\n");
 			tree_ptr = tree_ptr->l;
 		};
+
+		for (k = 0; k < indent; k++){
+			printf(" ");
+		}
 		printf("]");
 
 		return j+1;
