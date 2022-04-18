@@ -1,5 +1,10 @@
 # jstree
 a super lightweight json library
+
+# Quality
+[![CodeFactor](https://www.codefactor.io/repository/github/saurontech/jstree/badge)](https://www.codefactor.io/repository/github/saurontech/jstree)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d1f5fa3ce3f7406ba76cfa581915f210)](https://www.codacy.com/gh/saurontech/jstree/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=saurontech/jstree&amp;utm_campaign=Badge_Grade)
+
 # parse json file
 ```c
 jsmn_parser p;
