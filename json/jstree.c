@@ -9,18 +9,13 @@
 
 static int _c_hex(char in)
 {
-	printf("%c-----\n", in);
 	if(in >= '0' && in <= '9'){
-		printf("1   %hhd\n", in - '0');
 		return in - '0';
 	}else if(in >= 'a' && in <= 'f'){
-		printf("2   %hhd\n", 10 + in - 'a');
 		return 10 + in - 'a';
 	}else if(in >= 'A' && in <= 'F'){
-		printf("3   %hhd\n", 10 + in - 'A');
 		return 10 + in - 'A';
 	}else{
-		printf("error\n");
 		return 0;
 	}
 }
