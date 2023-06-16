@@ -30,7 +30,6 @@ int jstree_string_decode(char * out, int outlen, char * data)
 	int i;
 	int ptr;
 	int memlen = strlen(data) + 1;
-	int ret;
 	
 	ptr = i = 0;
 	while(i < memlen){
