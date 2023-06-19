@@ -10,7 +10,7 @@
 
 int jstree_string_encode(char *out, int outlen, char * data)
 {
-	char ptr;
+	int ptr;
 	int memlen = strlen(data) + 1;
 	int i;
 	ptr = 0;
