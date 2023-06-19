@@ -17,24 +17,35 @@ int jstree_string_encode(char *out, int outlen, char * data)
 
 	for(i = 0; i < memlen; i++)
 	{
-		if(ptr >= outlen){
-			return -1;
-		}
-
 		if(data[i] == '\\' ||
 			data[i] == '\"'){
 			if(out && outlen){
 				out[ptr] = '\';
 			}
 			ptr++;
+
+			if(out && 
+				outlen && 
+				ptr >= outlen){
+				return -1;
+			}
+			
 		}
+
 		if(out && outlen){
 			out[ptr] = data[i];
 		}
+
 		ptr++;
+		if( out && 
+			outlen && 
+			ptr >= outlen){
+
+			return -1;
+		}
 	}
 
-	return ptr;
+	return ptr - 1;
 }
 
 static int _c_hex(char in)
@@ -159,7 +170,7 @@ int jstree_string_decode(char * out, int outlen, char * data)
 					break;
 			}
 	}
-	return ptr;
+	return ptr - 1;
 }
 
 
